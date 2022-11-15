@@ -1,0 +1,27 @@
+{
+  "name": "where-can-i-watch",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.8",
+    "animate.css": "^4.1.1",
+    "axios": "^1.1.3",
+    "country-code-emoji": "^2.3.0",
+    "eslint": "8.27.0",
+    "eslint-config-next": "13.0.3",
+    "next": "13.0.3",
+    "prettier": "^2.7.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-select": "^5.6.0",
+    "typescript": "4.8.4"
+  }
+}
