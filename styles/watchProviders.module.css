@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
 .containerProviders {
     display: flex;
@@ -23,7 +23,7 @@
     background: #033436;
     color: #ffffff;
     font-size: 20px;
-    font-family: 'Fragment Mono', monospace;
+    font-family: 'Poppins', sans-serif;
 }
 .infoContainer {
     display: flex;
@@ -64,10 +64,10 @@
 }
 
 .section > span {
-    font-family: 'Fragment Mono', monospace;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: flex-start;
-    width: 60%;
+    width: 100%;
     border: 0 solid #023436;
     border-bottom-width: 3px;
 }
