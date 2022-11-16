@@ -4,21 +4,11 @@ This app can provide the channel list that you can buy/rent/watch for free.
 
 For development purpose,
 
-- Firstly, you need the packages that used in project.
+- You just need to get packages and start with development source.
 ```shell
-yarn
+npm install && npm run dev
 ```
-
-or 
+**or**
 ```shell
-npm install
-```
-
-- Then you can start it with,
-```shell
-yarn dev
-```
-or
-```shell
-npm run dev
+npm install && npm run dev
 ```

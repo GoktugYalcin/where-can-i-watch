@@ -60,6 +60,7 @@ export default function Home() {
                 }}
                 onChange={(item: SingleValue<object>) => {
                     setValue(item || {})
+                    setCountryValue(null)
                     searchQuery(item || {}).then((res: any) => setCountryOpts(res.data))
                 }}
                 value={value}
