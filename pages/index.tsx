@@ -48,7 +48,7 @@ export default function Home() {
                         zIndex: '9999 !important'
                     }),
                     menu: () => ({
-                        width: '100%',
+                        width: "auto",
                         backgroundColor: '#ffffff',
                         zIndex: '9999 !important',
                         position: 'fixed'
@@ -89,7 +89,7 @@ export default function Home() {
                         fontSize: "18px"
                     }),
                     menu: () => ({
-                        width: '300px',
+                        width: "auto",
                         backgroundColor: '#ffffff',
                         zIndex: '9999 !important',
                         position: 'fixed'
