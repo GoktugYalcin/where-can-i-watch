@@ -107,9 +107,6 @@ export default function Home() {
           {
               countryValue?.value ? <WatchProviders country={countryOpts[countryValue.value]} /> : <></>
           }
-        <div>
-
-        </div>
       </main>
     </div>
   )

@@ -23,19 +23,46 @@ const WatchProviders = (props: Props) => {
     const {country} = props
     return <div className={styles.containerProviders}>
             {
-                country.buy && country.buy.map((value: object, index: number) => {
-                    return <ProviderCard type={providerTypes.BUY} key={index} value={value}/>
-                })
+                country.buy ?
+                    <div className={styles.section}>
+                        <span>
+                            Buy
+                        </span>
+                        <div className={styles.sectionItems}>
+                            {
+                                country.buy.map((value: object, index: number) => {
+                                    return <ProviderCard type={providerTypes.BUY} key={index} value={value}/>
+                                })
+                            }
+                        </div>
+                    </div>
+                    : <></>
             }
             {
-                country.rent && country.rent.map((value: object, index: number) => {
-                    return <ProviderCard type={providerTypes.RENT} key={index} value={value}/>
-                })
+                country.rent ?
+                    <div className={styles.section}>
+                        <span>Rent</span>
+                    {
+                        <div className={styles.sectionItems}>
+                            {country.rent.map((value: object, index: number) => {
+                                return <ProviderCard type={providerTypes.RENT} key={index} value={value}/>
+                            })}
+                        </div>
+                    }
+                    </div> : <></>
             }
             {
-                country.flatrate && country.flatrate.map((value: object, index: number) => {
-                    return <ProviderCard type={providerTypes.FLATRATE} key={index} value={value}/>
-                })
+                country.flatrate ?
+                    <div className={styles.section}>
+                        <span>Streaming Service</span>
+                    {
+                        <div className={styles.sectionItems}>
+                            {country.flatrate.map((value: object, index: number) => {
+                                return <ProviderCard type={providerTypes.FLATRATE} key={index} value={value}/>
+                            })}
+                        </div>
+                    }
+                    </div>: <></>
             }
         </div>
 }
