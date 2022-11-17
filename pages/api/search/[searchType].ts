@@ -14,41 +14,43 @@ export default function handler(
         const key = process.env.TMDB_API_KEY
         const { searchType } = req.query
 
-        if(searchType === "multi") {
-            api.get("search/multi", {
-                params: {
-                    api_key: key,
-                    language: 'en-US',
-                    query: query,
-                    page: 1,
-                    include_adult: false
-                },
-            }).then(response => {
-                res.status(200).json(response.data.results)
-            }).catch((err): void => {
-                if (axios.isCancel(err)) {
-                    console.log('Previous request canceled, new request is send', err.message);
-                }
-                else {
-                    console.log(err.message)
-                }
-            })
-        }
-        else if(searchType === "country") {
-            api.get(`${query.media_type}/${query.id}/watch/providers`, {
-                params: {
-                    api_key: key
-                },
-            }).then(response => {
-                res.status(200).json(response.data.results)
-            }).catch((err: Error): void => {
-                if (axios.isCancel(err)) {
-                    console.log('Previous request canceled, new request is send', err.message);
-                }
-                else {
-                    console.log(err)
-                }
-            })
+        if(req.method === "POST") {
+            if(searchType === "multi") {
+                api.get("search/multi", {
+                    params: {
+                        api_key: key,
+                        language: 'en-US',
+                        query: query,
+                        page: 1,
+                        include_adult: false
+                    },
+                }).then(response => {
+                    res.status(200).json(response.data.results)
+                }).catch((err): void => {
+                    if (axios.isCancel(err)) {
+                        console.log('Previous request canceled, new request is send', err.message);
+                    }
+                    else {
+                        console.log(err.message)
+                    }
+                })
+            }
+            else if(searchType === "country") {
+                api.get(`${query.media_type}/${query.id}/watch/providers`, {
+                    params: {
+                        api_key: key
+                    },
+                }).then(response => {
+                    res.status(200).json(response.data.results)
+                }).catch((err: Error): void => {
+                    if (axios.isCancel(err)) {
+                        console.log('Previous request canceled, new request is send', err.message);
+                    }
+                    else {
+                        console.log(err)
+                    }
+                })
+            }
         }
 
 
