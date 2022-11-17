@@ -35,7 +35,7 @@ const getTypeName = (type: number): string => {
 export const ProviderCard = (props: Props) => {
     const {value, type} = props
     return <div className={`${styles.card} animate__animated animate__fadeIn`}>
-        <Image src={`https://image.tmdb.org/t/p/h632/${value.logo_path}`} alt={value.provider_name} width={175} height={175} className={styles.logo} placeholder={"blur"} blurDataURL={"https://placehold.jp/170x170.png"}/>
+        <Image src={`https://image.tmdb.org/t/p/h632/${value.logo_path}`} alt={value.provider_name} width={125} height={125} className={styles.logo} placeholder={"blur"} blurDataURL={"https://placehold.jp/170x170.png"}/>
         <div className={styles.infoContainer}>
             <span className={styles.name}>{value.provider_name}</span>
         </div>
