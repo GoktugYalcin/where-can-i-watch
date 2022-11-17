@@ -5,6 +5,7 @@ import AsyncSelect from "react-select/async";
 import Select, {SingleValue} from "react-select";
 import React, {useId, useState} from "react";
 import {getCountryName, searchQuery} from "../helpers";
+import debounce from "lodash/debounce"
 import {countryCodeEmoji} from "country-code-emoji";
 import WatchProviders, {countryNode} from "../components/watchProviders";
 
@@ -34,9 +35,9 @@ export default function Home() {
 
         <div className={styles.selectContainer}>
             <AsyncSelect
-                loadOptions={(input) => {
+                loadOptions={debounce((input) => {
                     return searchQuery(input).then((r: any) => r.data)
-                }}
+                }, 350)}
                 instanceId={useId()}
                 className={"animate__animated animate__fadeInLeft"}
                 getOptionLabel={(item: any) => (item.title || item.name)}
