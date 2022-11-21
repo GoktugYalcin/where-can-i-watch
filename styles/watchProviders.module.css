@@ -27,13 +27,14 @@
 }
 .infoContainer {
     display: flex;
-    width: 175px;
+    width: 200px;
     justify-content: center;
 }
 
 .logo {
     border-radius: 20px;
     margin-right: 10px;
+    border: 2px solid #063537;
 }
 
 .info {
@@ -69,4 +70,14 @@
     margin: 20px 0;
     border: 0 solid #023436;
     border-bottom-width: 3px;
+}
+
+@media (max-width: 1200px) {
+    .card {
+        margin-right: 0;
+    }
+
+    .infoContainer {
+        width: 175px;
+    }
 }
