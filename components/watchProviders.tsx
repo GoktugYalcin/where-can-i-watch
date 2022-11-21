@@ -24,7 +24,7 @@ const WatchProviders = (props: Props) => {
     return <div className={styles.containerProviders}>
             {
                 country.buy ?
-                    <div className={styles.section}>
+                    <div className={`${styles.section} animate__animated animate__fadeIn`}>
                         <span>
                             Buy
                         </span>
@@ -40,7 +40,7 @@ const WatchProviders = (props: Props) => {
             }
             {
                 country.rent ?
-                    <div className={styles.section}>
+                    <div className={`${styles.section} animate__animated animate__fadeIn`}>
                         <span>Rent</span>
                     {
                         <div className={styles.sectionItems}>
@@ -53,7 +53,7 @@ const WatchProviders = (props: Props) => {
             }
             {
                 country.flatrate ?
-                    <div className={styles.section}>
+                    <div className={`${styles.section} animate__animated animate__fadeIn`}>
                         <span>Streaming Service</span>
                     {
                         <div className={styles.sectionItems}>
