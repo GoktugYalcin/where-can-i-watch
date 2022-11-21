@@ -100,8 +100,7 @@ export default function Home() {
                     })
                 }}
                 placeholder={"Country..."}
-                menuPlacement={'bottom'}
-                menuPosition={'fixed'}
+                menuPosition={'absolute'}
              />
         </div>
           {
