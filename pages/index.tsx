@@ -38,7 +38,6 @@ export default function Home() {
                     return searchQuery(input).then((r: any) => r.data)
                 }}
                 instanceId={useId()}
-                className={"animate__animated animate__fadeIn"}
                 getOptionLabel={(item: any) => (item.title || item.name)}
                 getOptionValue={(item: any) => item.id}
                 styles={{
@@ -82,7 +81,6 @@ export default function Home() {
                 }}
                 value={countryValue}
                 instanceId={useId()}
-                className={"animate__animated animate__fadeIn"}
                 styles={{
                     container: () => ({
                         width: "300px",
@@ -100,7 +98,8 @@ export default function Home() {
                     })
                 }}
                 placeholder={"Country..."}
-                menuPosition={'absolute'}
+                menuPlacement={'bottom'}
+                menuPosition={'fixed'}
              />
         </div>
           {
