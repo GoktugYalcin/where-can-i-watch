@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import styles from "../styles/watchProviders.module.css";
 import Image from "next/image";
 import {object} from "prop-types";
@@ -32,12 +32,22 @@ const getTypeName = (type: number): string => {
     }
 }
 
-export const ProviderCard = (props: Props) => {
+export const ProviderCard = memo((props: Props) => {
+    const [isVisible, setIsVisible] = useState(true)
+
+    useEffect(() => {
+        setIsVisible(true)
+
+        return () => {
+            setIsVisible(false)
+        }
+    }, [])
+
     const {value, type} = props
-    return <div className={`${styles.card} animate__animated animate__fadeIn`}>
-        <Image src={`https://image.tmdb.org/t/p/h632/${value.logo_path}`} alt={value.provider_name} width={125} height={125} className={styles.logo} placeholder={"blur"} blurDataURL={"https://placehold.jp/170x170.png"}/>
+    return <div className={`${styles.card} ${isVisible ? 'animate__animated animate__fadeIn' : 'animate__animated animate__fadeOut'}`}>
+        <Image src={`https://image.tmdb.org/t/p/h632/${value.logo_path}`} alt={value.provider_name} width={135} height={135} className={styles.logo} placeholder={"blur"} blurDataURL={"https://placehold.jp/170x170.png"}/>
         <div className={styles.infoContainer}>
             <span className={styles.name}>{value.provider_name}</span>
         </div>
     </div>
-}
+})

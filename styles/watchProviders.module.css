@@ -29,12 +29,14 @@
     display: flex;
     width: 200px;
     justify-content: center;
+    text-align: center;
 }
 
 .logo {
-    border-radius: 20px;
+    border-radius: 45px;
     margin-right: 10px;
     border: 2px solid #063537;
+    background-color: #033436;
 }
 
 .info {
