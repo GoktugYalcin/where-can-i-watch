@@ -32,7 +32,7 @@ const getTypeName = (type: number): string => {
     }
 }
 
-export const ProviderCard = memo((props: Props) => {
+const ProviderCard = (props: Props) => {
     const [isVisible, setIsVisible] = useState(true)
 
     useEffect(() => {
@@ -50,4 +50,6 @@ export const ProviderCard = memo((props: Props) => {
             <span className={styles.name}>{value.provider_name}</span>
         </div>
     </div>
-})
+}
+
+export default memo(ProviderCard)

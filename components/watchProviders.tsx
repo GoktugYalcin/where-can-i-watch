@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/watchProviders.module.css";
-import {Provider, ProviderCard} from "./providerCard";
+import ProviderCard, {Provider} from "./providerCard";
 
 export interface countryNode {
     link: string,
