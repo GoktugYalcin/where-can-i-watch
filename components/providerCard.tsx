@@ -15,23 +15,6 @@ export interface Provider{
     display_priority: number
 }
 
-const getTypeName = (type: number): string => {
-    switch (type) {
-        case 0:
-            return 'You can buy it';
-            break;
-        case 1:
-            return 'You can rent it';
-            break;
-        case 2:
-            return 'You can watch it with streaming service';
-            break;
-        default:
-            return ''
-            break;
-    }
-}
-
 const ProviderCard = (props: Props) => {
     const [isVisible, setIsVisible] = useState(true)
 
