@@ -49,12 +49,12 @@ export default function Home() {
                     menu: () => ({
                         width: "auto",
                         backgroundColor: '#ffffff',
-                        zIndex: '9999 !important'
+                        zIndex: '9999 !important',
+                        position: 'fixed'
                     }),
                     menuPortal: ({ left, top, ...provided }, state) => ({
                         ...provided,
-                        zIndex: '9999 !important',
-                        position: 'absolute'
+                        zIndex: '9999 !important'
                     })
                 }}
                 onChange={(item: SingleValue<object>) => {
@@ -89,12 +89,12 @@ export default function Home() {
                     menu: () => ({
                         width: "auto",
                         backgroundColor: '#ffffff',
-                        zIndex: '9999 !important'
+                        zIndex: '9999 !important',
+                        position: 'fixed'
                     }),
                     menuPortal: ({ left, top, ...provided }, state) => ({
                         ...provided,
-                        zIndex: '9999 !important',
-                        position: 'absolute'
+                        zIndex: '9999 !important'
                     })
                 }}
                 placeholder={"Country..."}
