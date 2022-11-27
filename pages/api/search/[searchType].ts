@@ -25,16 +25,16 @@ export default function handler(
                         include_adult: false
                     },
                 }).then(response => {
-                    console.log("turned with " + response.data.results)
+                    console.log("turned with ")
                     res.status(200).json(response.data.results)
                 }).catch((err): void => {
-                    console.log("error..." + err.message)
-                    if (axios.isCancel(err)) {
+                    console.log("error...")
+                    /*if (axios.isCancel(err)) {
                         console.log('Previous request canceled, new request is send', err.message);
                     }
                     else {
                         console.log(err.message)
-                    }
+                    }*/
                 })
             }
             else if(searchType === "country") {
