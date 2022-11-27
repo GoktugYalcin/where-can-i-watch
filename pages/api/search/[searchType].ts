@@ -25,7 +25,7 @@ export default function handler(
                         include_adult: false
                     },
                 }).then(response => {
-                    console.log("turned with ")
+                    console.log(JSON.stringify(response))
                     res.status(200).json(response.data.results)
                 }).catch((err): void => {
                     console.log("error...")
