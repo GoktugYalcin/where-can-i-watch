@@ -25,10 +25,10 @@ export default function handler(
                         include_adult: false
                     },
                 }).then(response => {
-                    console.log(response)
+                    console.log("turned with " + response.data.results)
                     res.status(200).json(response.data.results)
                 }).catch((err): void => {
-                    console.log(err)
+                    console.log("error..." + err.message)
                     if (axios.isCancel(err)) {
                         console.log('Previous request canceled, new request is send', err.message);
                     }
