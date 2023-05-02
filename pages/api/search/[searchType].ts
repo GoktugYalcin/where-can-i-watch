@@ -29,12 +29,6 @@ export default function handler(
                     res.status(200).json(response.data.results)
                 }).catch((err): void => {
                     console.log("error...", err.message)
-                    /*if (axios.isCancel(err)) {
-                        console.log('Previous request canceled, new request is send', err.message);
-                    }
-                    else {
-                        console.log(err.message)
-                    }*/
                 })
             }
             else if(searchType === "country") {
