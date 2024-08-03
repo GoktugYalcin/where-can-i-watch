@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-hex: #edf2f4;
+  --foreground-hex: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-hex: #edf2f4;
+    --foreground-hex: #fff;
+  }
+}
+
+body {
+  color: var(--foreground-hex);
+  background: var(--background-hex);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 80%;
+  border: none!important;
+  padding: 1rem!important;
+  border-radius: 1rem!important;
+  background: #e8e8e8!important;
+  box-shadow: 20px 20px 60px #c5c5c5,
+  -20px -20px 60px #ffffff!important;
+  transition: 0.3s!important;
+  cursor: pointer!important;
+}
+
+.input:focus {
+  outline-color: #e8e8e8!important;
+  background: #e8e8e8!important;
+  box-shadow: inset 20px 20px 60px #c5c5c5,
+  inset -20px -20px 60px #ffffff!important;
+  transition: 0.3s!important;
+}
+
+.text-shimmmer {
+  animation: shimmer .5s ease-in infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
