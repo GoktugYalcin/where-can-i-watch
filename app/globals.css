@@ -38,8 +38,7 @@ body {
   padding: 1rem!important;
   border-radius: 1rem!important;
   background: #e8e8e8!important;
-  box-shadow: 20px 20px 60px #c5c5c5,
-  -20px -20px 60px #ffffff!important;
+  box-shadow: 5px 5px 20px #c5c5c5, -23px -23px 60px #ffffff !important;
   transition: 0.3s!important;
   cursor: pointer!important;
 }
@@ -50,6 +49,11 @@ body {
   box-shadow: inset 20px 20px 60px #c5c5c5,
   inset -20px -20px 60px #ffffff!important;
   transition: 0.3s!important;
+}
+
+.search {
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1),0 4px 11px hsla(0, 0%, 0%, 0.1) !important;
+  background: #ededed !important;
 }
 
 .text-shimmmer {
@@ -65,3 +69,8 @@ body {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}

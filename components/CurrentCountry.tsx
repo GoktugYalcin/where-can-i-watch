@@ -2,6 +2,8 @@ import React from "react";
 import ky from "ky";
 import { getCountryFlag } from "@/lib/utils";
 import { AnimatedShinyTextWrapper } from "@/components/AnimatedShinyTextWrapper";
+import { useEntityStore } from "@/bear/entityBear";
+import CountryWrapper from "@/components/CountryWrapper";
 
 export async function CurrentCountry() {
   const { country } = await ky("https://api.country.is/").json();
@@ -12,7 +14,7 @@ export async function CurrentCountry() {
           <AnimatedShinyTextWrapper>
             <span className="flex justify-center items-center gap-2">
               <span>You are connecting from:</span>
-              <span className="text-lg">{getCountryFlag(country)}</span>
+              <CountryWrapper country={country} />
             </span>
           </AnimatedShinyTextWrapper>
         </span>
