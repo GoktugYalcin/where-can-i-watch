@@ -7,12 +7,12 @@
   --foreground-hex: #000;
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   :root {
     --background-hex: #edf2f4;
     --foreground-hex: #fff;
   }
-}
+}*/
 
 body {
   color: var(--foreground-hex);
