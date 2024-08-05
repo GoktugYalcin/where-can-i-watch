@@ -13,7 +13,7 @@ export const GeneratedOption = (props) => {
       case "tv":
         return data.name ?? data.original_name;
     }
-  }, [data.id]);
+  }, [data]);
 
   const imageUrl = useMemo(
     () => `https://image.tmdb.org/t/p/w500${data.poster_path}`,

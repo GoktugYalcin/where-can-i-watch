@@ -17,10 +17,6 @@ const Imprint: React.FC<{}> = () => {
     return selectedProviders?.results[selectedCountry] ?? null;
   }, [selectedCountry, selectedProviders]);
 
-  if (!selectedEntity) {
-    return <></>;
-  }
-
   useEffect(() => {
     if (scrollToDivRef.current) {
       if ("scrollIntoView" in scrollToDivRef.current) {
@@ -30,18 +26,22 @@ const Imprint: React.FC<{}> = () => {
   }, [selectedEntity]);
 
   const dataName = useMemo(() => {
-    switch (selectedEntity.media_type) {
+    switch (selectedEntity?.media_type) {
       case "movie":
         return selectedEntity.name ?? selectedEntity.original_title;
       case "tv":
         return selectedEntity.name ?? selectedEntity.original_name;
     }
-  }, [selectedEntity.id]);
+  }, [selectedEntity]);
 
   const imageUrl = useMemo(
-    () => `https://image.tmdb.org/t/p/w500${selectedEntity.poster_path}`,
+    () => `https://image.tmdb.org/t/p/w500${selectedEntity?.poster_path}`,
     [selectedEntity],
   );
+
+  if (!selectedEntity) {
+    return <></>;
+  }
 
   return (
     <BlurFade className="flex flex-col w-full justify-start items-start">

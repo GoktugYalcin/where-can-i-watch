@@ -12,7 +12,7 @@ const CountryWrapper: React.FC<{ country: string }> = ({ country }) => {
     if (!!country) {
       updateCountry(country);
     }
-  }, [country]);
+  }, [country, updateCountry]);
 
   return (
     selectedCountry && (
