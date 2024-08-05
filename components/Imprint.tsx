@@ -18,11 +18,7 @@ const Imprint: React.FC<{}> = () => {
   }, [selectedCountry, selectedProviders]);
 
   useEffect(() => {
-    if (scrollToDivRef.current) {
-      if ("scrollIntoView" in scrollToDivRef.current) {
-        scrollToDivRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    window.scrollTo({ behavior: "smooth", top: 300 });
   }, [selectedEntity]);
 
   const dataName = useMemo(() => {
