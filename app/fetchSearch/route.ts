@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     .json<TMDBMultiSearchResult>();
   const filteredRes: TMDBMultiSearchResult = {
     ...res,
-    results: res.results.filter((i) => i.media_type !== "person"),
+    results: res.results.filter((i) => ["movie", "tv"].includes(i.media_type)),
   };
 
   return Response.json({ ...filteredRes });
