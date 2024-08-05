@@ -2,7 +2,7 @@ import React from "react";
 
 const ImprintCategoriesLoader = () => {
   return (
-    <div className="flex w-full flex-wrap justify-start items-center gap-3">
+    <div className="flex w-full flex-wrap lg:justify-start justify-center items-center lg:gap-3 gap-8">
       <div className="flex h-20 animate-pulse justify-start items-center border w-72 drop-shadow-md border-slate-300 rounded-xl gap-5 text-slate-50 font-semibold overflow-hidden">
         <div className="h-full bg-gray-300 dark:bg-gray-600 w-24"></div>
         <div className="flex flex-col justify-center items-start gap-1">

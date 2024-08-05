@@ -40,7 +40,7 @@ const Imprint: React.FC<{}> = () => {
   }
 
   return (
-    <BlurFade className="flex flex-col min-h-screen w-full justify-start items-start">
+    <BlurFade className="flex flex-col w-full justify-start items-start">
       <ImprintDivider>Imprint</ImprintDivider>
       <div
         ref={scrollToDivRef}
@@ -78,7 +78,7 @@ const Imprint: React.FC<{}> = () => {
       {providersByCountry && (
         <BlurFade
           delay={0.25}
-          className="flex w-full flex-wrap justify-start items-center gap-3"
+          className="flex w-full flex-wrap lg:justify-start justify-center items-center lg:gap-3 gap-8"
         >
           <ImprintWatchCategories
             providersByCountry={providersByCountry}
