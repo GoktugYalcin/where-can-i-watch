@@ -1,7 +1,10 @@
 import { cn } from "@/lib/utils";
 import AnimatedShinyText from "@/components/AnimatedShinyText";
+import React from "react";
 
-export async function AnimatedShinyTextWrapper({ children }) {
+export const AnimatedShinyTextWrapper: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   return (
     <div className="z-10 flex items-center justify-start">
       <div
@@ -15,4 +18,4 @@ export async function AnimatedShinyTextWrapper({ children }) {
       </div>
     </div>
   );
-}
+};
