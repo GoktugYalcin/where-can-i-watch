@@ -11,7 +11,7 @@ interface EntitySlice {
   selectedEntity: TMDBResult | null;
   selectedProviders: ProviderResults | null;
   isEntityLoading: boolean;
-  updateEntity: (entity: TMDBResult) => void;
+  updateEntity: (entity: TMDBResult | null) => void;
   updateProviders: (entity: ProviderResults | null) => void;
   updateCountry: (country: string) => void;
   updateIsLoading: (loading: boolean) => void;

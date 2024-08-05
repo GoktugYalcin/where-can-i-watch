@@ -4,7 +4,7 @@ import { components } from "react-select";
 import { TMDBResult } from "@/types/TMDB";
 
 export const GeneratedValue = (props) => {
-  const data = props.data as TMDBResult;
+  const data = props.data;
   const dataName = useMemo(() => {
     switch (data.media_type) {
       case "movie":

@@ -71,6 +71,7 @@ export type CountryProviders = {
   rent?: RentProvider[];
   buy?: BuyProvider[];
   free?: FreeProvider[];
+  subscription?: StreamProvider[];
 };
 
 // Overall provider results structure

@@ -2,14 +2,15 @@ import React, { useId, useRef } from "react";
 import AsyncSelect from "react-select/async";
 import ky from "ky";
 import {
+  MovieResult,
   ProviderResults,
   TMDBMultiSearchResult,
   TMDBResult,
+  TVResult,
 } from "@/types/TMDB";
 import { GeneratedOption } from "@/components/GeneratedOption";
 import { useEntityBear } from "@/bear/entityBear";
 import { GeneratedValue } from "@/components/GeneratedValue";
-import Select from "react-select";
 
 const components = {
   DropdownIndicator: null,
@@ -18,7 +19,7 @@ const components = {
 };
 
 const GeneratedSelect = () => {
-  const selectRef = useRef<Select>(null);
+  const selectRef = useRef<any>(null);
   const selectedEntity = useEntityBear((s) => s.selectedEntity);
   const selectedCountry = useEntityBear((s) => s.selectedCountry);
   const updateEntity = useEntityBear((s) => s.updateEntity);
@@ -39,8 +40,8 @@ const GeneratedSelect = () => {
           return res.results;
         });
       }}
-      getOptionLabel={(opt) => opt.name}
-      getOptionValue={(opt) => opt.id}
+      getOptionLabel={(opt: MovieResult | TVResult) => opt.name}
+      getOptionValue={(opt: any) => ("id" in opt ? opt.id.toString() : "0")}
       instanceId={useId()}
       cacheOptions
       components={components}
@@ -51,7 +52,9 @@ const GeneratedSelect = () => {
       onInputChange={(newValue) => setInputValue(newValue)}
       onChange={(val) => {
         updateIsLoading(true);
-        selectRef.current.blur();
+        if (selectRef.current) {
+          selectRef.current.blur();
+        }
         if (!!val) {
           updateEntity(val as TMDBResult);
           ky.post("/fetchProviders", {
@@ -67,7 +70,7 @@ const GeneratedSelect = () => {
               updateProviders(res);
             });
         } else {
-          updateEntity(null as TMDBResult);
+          updateEntity(null);
           window.scrollTo({ behavior: "smooth", top: 0 });
         }
       }}

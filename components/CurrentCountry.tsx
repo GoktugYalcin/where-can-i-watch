@@ -6,7 +6,9 @@ import CountryWrapper from "@/components/CountryWrapper";
 export async function CurrentCountry() {
   let country;
   try {
-    const res = await ky("https://api.country.is/").json();
+    const res = await ky("https://api.country.is/").json<{
+      country: string;
+    }>();
     country = res.country as string;
   } catch (e) {
     return (

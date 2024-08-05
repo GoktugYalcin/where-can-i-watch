@@ -14,7 +14,7 @@ const Imprint: React.FC<{}> = () => {
   const selectedProviders = useEntityBear((s) => s.selectedProviders);
 
   const providersByCountry = useMemo(() => {
-    return selectedProviders?.results[selectedCountry] ?? null;
+    return selectedProviders?.results[selectedCountry ?? "TR"] ?? null;
   }, [selectedCountry, selectedProviders]);
 
   useEffect(() => {

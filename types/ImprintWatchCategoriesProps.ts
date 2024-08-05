@@ -1,8 +1,8 @@
 import { CountryProviders } from "@/types/TMDB";
 
 export type ImprintWatchCategoriesProps = {
-  providersByCountry: CountryProviders;
-  type: string;
+  providersByCountry: Omit<CountryProviders, "link">;
+  type: keyof Omit<CountryProviders, "link">;
   title: string;
   color: string;
 };

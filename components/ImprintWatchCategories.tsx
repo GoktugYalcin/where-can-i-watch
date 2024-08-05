@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ImprintWatchCategoriesProps } from "@/types/ImprintWatchCategoriesProps";
 
 const ImprintWatchCategories: React.FC<ImprintWatchCategoriesProps> = ({
-  type,
+  type = "free",
   providersByCountry,
   title,
   color,
