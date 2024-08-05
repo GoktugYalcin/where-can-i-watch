@@ -17,7 +17,7 @@ interface EntitySlice {
   updateIsLoading: (loading: boolean) => void;
 }
 
-export const useEntityStore = create<EntitySlice>((set) => ({
+export const useEntityBear = create<EntitySlice>((set) => ({
   selectedEntity: null,
   selectedCountry: null,
   selectedProviders: null,

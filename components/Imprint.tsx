@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
-import { useEntityStore } from "@/bear/entityBear";
+import { useEntityBear } from "@/bear/entityBear";
 import Image from "next/image";
 import ImprintDivider from "@/components/ImprintDivider";
 import ImprintWatchCategories from "@/components/ImprintWatchCategories";
 
 const Imprint: React.FC<{}> = () => {
-  const selectedEntity = useEntityStore((s) => s.selectedEntity);
-  const isEntityLoading = useEntityStore((s) => s.isEntityLoading);
-  const selectedCountry = useEntityStore((s) => s.selectedCountry);
-  const selectedProviders = useEntityStore((s) => s.selectedProviders);
+  const selectedEntity = useEntityBear((s) => s.selectedEntity);
+  const isEntityLoading = useEntityBear((s) => s.isEntityLoading);
+  const selectedCountry = useEntityBear((s) => s.selectedCountry);
+  const selectedProviders = useEntityBear((s) => s.selectedProviders);
 
   const providersByCountry = useMemo(() => {
     return selectedProviders?.results[selectedCountry] ?? null;

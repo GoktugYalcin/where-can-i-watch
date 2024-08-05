@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import { CountryProviders } from "@/types/TMDB";
+import { ImprintWatchCategoriesProps } from "@/types/ImprintWatchCategoriesProps";
 
-const ImprintWatchCategories: React.FC<{
-  providersByCountry: CountryProviders;
-  type: string;
-  title: string;
-}> = ({ type, providersByCountry, title }) => {
+const ImprintWatchCategories: React.FC<ImprintWatchCategoriesProps> = ({
+  type,
+  providersByCountry,
+  title,
+}) => {
   return (
     !!providersByCountry[type]?.length && (
       <div className="w-full ml-8">
@@ -17,7 +17,7 @@ const ImprintWatchCategories: React.FC<{
           {providersByCountry[type].map((i) => {
             const logoPath = `https://image.tmdb.org/t/p/w500${i.logo_path}`;
             return (
-              <div className="flex justify-between gap-5 w-fit text-slate-50 items-center font-semibold overflow-hidden rounded-full bg-gradient-to-br from-slate-700 to-gray-400">
+              <div className="flex justify-between gap-5 w-fit text-slate-50 items-center font-semibold overflow-hidden bg-gradient-to-br from-slate-700 to-gray-400">
                 <Image
                   src={logoPath}
                   width={80}

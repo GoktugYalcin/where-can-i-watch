@@ -32,6 +32,10 @@ body {
   align-items: center;
 }
 
+.container__disabled {
+  opacity: 0.4;
+}
+
 .input {
   width: 80%;
   border: none!important;

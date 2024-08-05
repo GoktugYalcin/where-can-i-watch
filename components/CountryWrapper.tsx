@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useEntityStore } from "@/bear/entityBear";
+import { useEntityBear } from "@/bear/entityBear";
 import { getCountryFlag } from "@/lib/utils";
 
 const CountryWrapper: React.FC<{ country: string }> = ({ country }) => {
-  const updateCountry = useEntityStore((s) => s.updateCountry);
-  const selectedCountry = useEntityStore((s) => s.selectedCountry);
+  const updateCountry = useEntityBear((s) => s.updateCountry);
+  const selectedCountry = useEntityBear((s) => s.selectedCountry);
 
   useEffect(() => {
     if (!!country) {

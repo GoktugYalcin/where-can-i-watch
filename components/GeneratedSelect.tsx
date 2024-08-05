@@ -2,13 +2,12 @@ import React, { useId, useRef } from "react";
 import AsyncSelect from "react-select/async";
 import ky from "ky";
 import {
-  CountryProviders,
   ProviderResults,
   TMDBMultiSearchResult,
   TMDBResult,
 } from "@/types/TMDB";
 import { GeneratedOption } from "@/components/GeneratedOption";
-import { useEntityStore } from "@/bear/entityBear";
+import { useEntityBear } from "@/bear/entityBear";
 import { GeneratedValue } from "@/components/GeneratedValue";
 import Select from "react-select";
 
@@ -18,13 +17,14 @@ const components = {
   SingleValue: GeneratedValue,
 };
 
-export default () => {
+const GeneratedSelect = () => {
   const selectRef = useRef<Select>(null);
-  const selectedEntity = useEntityStore((s) => s.selectedEntity);
-  const selectedCountry = useEntityStore((s) => s.selectedCountry);
-  const updateEntity = useEntityStore((s) => s.updateEntity);
-  const updateIsLoading = useEntityStore((s) => s.updateIsLoading);
-  const updateProviders = useEntityStore((s) => s.updateProviders);
+  const selectedEntity = useEntityBear((s) => s.selectedEntity);
+  const isEntityLoading = useEntityBear((s) => s.isEntityLoading);
+  const selectedCountry = useEntityBear((s) => s.selectedCountry);
+  const updateEntity = useEntityBear((s) => s.updateEntity);
+  const updateIsLoading = useEntityBear((s) => s.updateIsLoading);
+  const updateProviders = useEntityBear((s) => s.updateProviders);
 
   const [inputValue, setInputValue] = React.useState<string>("");
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -42,6 +42,7 @@ export default () => {
       getOptionValue={(opt) => opt.id}
       instanceId={useId()}
       components={components}
+      isDisabled={!selectedCountry}
       inputValue={inputValue}
       menuIsOpen={isMenuOpen}
       isClearable={true}
@@ -66,10 +67,12 @@ export default () => {
             });
         }
       }}
-      placeholder="Search..."
+      placeholder={`${isEntityLoading ? "Loading" : "Search"}...`}
+      isLoading={!selectedCountry || isEntityLoading}
       classNames={{
         control: () => "input",
-        container: () => "container",
+        container: () =>
+          `container ${!selectedCountry ? "container__disabled" : ""}`,
         menu: () => "input search",
       }}
       onMenuClose={() => setIsMenuOpen(false)}
@@ -78,3 +81,5 @@ export default () => {
     />
   );
 };
+
+export default GeneratedSelect;

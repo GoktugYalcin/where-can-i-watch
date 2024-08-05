@@ -4,13 +4,13 @@ import { Inconsolata } from "next/font/google";
 import BlurFade from "@/components/BlurFade";
 import GeneratedSelect from "@/components/GeneratedSelect";
 import { LetterPullUp } from "@/components/LetterPullUp";
-import { useEntityStore } from "@/bear/entityBear";
+import { useEntityBear } from "@/bear/entityBear";
 import Imprint from "@/components/Imprint";
 
 const inconsolata = Inconsolata({ subsets: ["latin"] });
 
 export default function Home() {
-  const selectedEntity = useEntityStore((s) => s.selectedEntity);
+  const selectedEntity = useEntityBear((s) => s.selectedEntity);
   return (
     <main className="min-h-screen">
       <BlurFade

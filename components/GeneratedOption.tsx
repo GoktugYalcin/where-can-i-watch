@@ -5,6 +5,7 @@ import { TMDBResult } from "@/types/TMDB";
 
 export const GeneratedOption = (props) => {
   const data = props.data as TMDBResult;
+
   const dataName = useMemo(() => {
     switch (data.media_type) {
       case "movie":
@@ -13,6 +14,7 @@ export const GeneratedOption = (props) => {
         return data.name ?? data.original_name;
     }
   }, [data.id]);
+
   const imageUrl = useMemo(
     () => `https://image.tmdb.org/t/p/w500${data.poster_path}`,
     [data],
