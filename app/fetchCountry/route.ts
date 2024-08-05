@@ -1,8 +1,14 @@
-import { NextRequest } from "next/server";
-import ky from "ky";
+import { geolocation } from "@vercel/functions";
 
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
+  const geo = geolocation(request);
+  console.log({
+    geo: geo.country,
+    flag: geo.flag,
+    ge: geo.countryRegion,
+    io: request.headers.get("x-forwarded-for"),
+  });
   return Response.json({
-    country: request.headers.get("X-Vercel-IP-Country") ?? "FR",
+    country: geo.country ?? "FR",
   });
 }
