@@ -7,8 +7,6 @@ import GridPattern from "@/components/GridPattern";
 import React, { Suspense } from "react";
 import CurrentCountry from "@/components/CurrentCountry";
 import { AnimatedShinyTextWrapper } from "@/components/AnimatedShinyTextWrapper";
-import Head from "next/head";
-import AdsenseProvider from "@/components/AdsenseProvider";
 
 const dm = DM_Sans({ subsets: ["latin"] });
 
@@ -51,7 +49,6 @@ export default function RootLayout({
           <CurrentCountry />
         </Suspense>
       </body>
-      <AdsenseProvider pId={process.env.ADSENSE_CLIENT_KEY} />
     </html>
   );
 }
