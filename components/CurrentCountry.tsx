@@ -17,23 +17,24 @@ export async function CurrentCountry() {
       .then((res) => setCountry(res.country));
   }, []);
 
-  return !!country ? (
-    <>
-      <BlurFade delay={0.1} className="sticky w-fit ml-12 bottom-5">
-        <AnimatedShinyTextWrapper>
-          <span className="flex justify-center items-center gap-2">
-            <span>You are connecting from:</span>
-            <CountryWrapper country={country} />
-          </span>
-        </AnimatedShinyTextWrapper>
-      </BlurFade>
-    </>
-  ) : (
-    <span className="sticky w-fit ml-12 bottom-5">
+  return (
+    <BlurFade
+      delay={0.1}
+      className="lg:fixed sticky w-full flex lg:justify-start justify-center items-center bottom-5 lg:left-8"
+    >
       <AnimatedShinyTextWrapper>
-        <span>Loading...</span>
+        <span className="flex justify-center items-center gap-2">
+          {!!country ? (
+            <>
+              <span>You are connecting from:</span>
+              <CountryWrapper country={country} />
+            </>
+          ) : (
+            <span>Loading...</span>
+          )}
+        </span>
       </AnimatedShinyTextWrapper>
-    </span>
+    </BlurFade>
   );
 }
 
