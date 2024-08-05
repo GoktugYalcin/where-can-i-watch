@@ -20,7 +20,6 @@ const components = {
 const GeneratedSelect = () => {
   const selectRef = useRef<Select>(null);
   const selectedEntity = useEntityBear((s) => s.selectedEntity);
-  const isEntityLoading = useEntityBear((s) => s.isEntityLoading);
   const selectedCountry = useEntityBear((s) => s.selectedCountry);
   const updateEntity = useEntityBear((s) => s.updateEntity);
   const updateIsLoading = useEntityBear((s) => s.updateIsLoading);
@@ -43,6 +42,7 @@ const GeneratedSelect = () => {
       getOptionLabel={(opt) => opt.name}
       getOptionValue={(opt) => opt.id}
       instanceId={useId()}
+      cacheOptions
       components={components}
       isDisabled={!selectedCountry}
       inputValue={inputValue}

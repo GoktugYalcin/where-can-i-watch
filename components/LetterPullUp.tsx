@@ -3,7 +3,7 @@ import { Gupter } from "next/font/google";
 
 const gupter = Gupter({ subsets: ["latin"], weight: "400" });
 
-export function LetterPullUp({ extraClasses, title }) {
+export function LetterPullUp({ extraClasses = "", title }) {
   const letters = title?.split("") ?? [];
 
   const pullupVariant = {
