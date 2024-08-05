@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { useEntityBear } from "@/bear/entityBear";
 import Image from "next/image";
+import Lottie, { Options } from "react-lottie";
+import * as notFoundAnimation from "@/public/notFound.json";
 import ImprintDivider from "@/components/ImprintDivider";
 import ImprintWatchCategories from "@/components/ImprintWatchCategories";
 import BlurFade from "@/components/BlurFade";
@@ -75,6 +77,25 @@ const Imprint: React.FC<{}> = () => {
       </div>
       <ImprintDivider>Where Can You Watch?</ImprintDivider>
       {isEntityLoading && <ImprintCategoriesLoader />}
+      {!isEntityLoading && !providersByCountry && (
+        <BlurFade
+          delay={0.25}
+          className="flex w-full justify-center items-center lg:gap-3 gap-8 lg:mb-0 mb-16"
+        >
+          <div className="flex flex-col lg:w-1/2 w-3/4 justify-center items-center font-bold">
+            <Lottie
+              options={
+                {
+                  loop: true,
+                  autoplay: true,
+                  animationData: notFoundAnimation,
+                } as Options
+              }
+            />
+            <span>No provider at your country :(</span>
+          </div>
+        </BlurFade>
+      )}
       {providersByCountry && (
         <BlurFade
           delay={0.25}
