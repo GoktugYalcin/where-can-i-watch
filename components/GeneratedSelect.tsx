@@ -36,7 +36,9 @@ const GeneratedSelect = () => {
         const results = ky
           .post("/fetchSearch", { json: { query } })
           .json<TMDBMultiSearchResult>();
-        return results.then((res) => res.results);
+        return results.then((res) => {
+          return res.results;
+        });
       }}
       getOptionLabel={(opt) => opt.name}
       getOptionValue={(opt) => opt.id}
@@ -48,11 +50,10 @@ const GeneratedSelect = () => {
       isClearable={true}
       onInputChange={(newValue) => setInputValue(newValue)}
       onChange={(val) => {
-        updateEntity(val as TMDBResult);
+        updateIsLoading(true);
         selectRef.current.blur();
         if (!!val) {
-          updateIsLoading(true);
-          updateProviders(null);
+          updateEntity(val as TMDBResult);
           ky.post("/fetchProviders", {
             json: {
               type: (val as TMDBResult).media_type,
@@ -65,15 +66,20 @@ const GeneratedSelect = () => {
               updateIsLoading(false);
               updateProviders(res);
             });
+        } else {
+          updateEntity(null as TMDBResult);
+          window.scrollTo({ behavior: "smooth", top: 0 });
         }
       }}
-      placeholder={`${isEntityLoading ? "Loading" : "Search"}...`}
-      isLoading={!selectedCountry || isEntityLoading}
+      placeholder={"Search..."}
       classNames={{
-        control: () => "input",
+        control: () =>
+          "flex text-xl border border-slate-300 w-3/4 shadow-md !rounded-[50px] px-3 py-3 bg-gradient-to-r from-slate-50 via-slate-100 to-slate-50 transition-all !cursor-pointer",
         container: () =>
           `container ${!selectedCountry ? "container__disabled" : ""}`,
-        menu: () => "input search",
+        menuList: () => `!w-full`,
+        menu: () =>
+          "flex text-xl border border-slate-300 !w-3/4 shadow-md !rounded-lg px-3 py-3 bg-gradient-to-r from-slate-50 via-slate-100 to-slate-50 transition-all !cursor-pointer search",
       }}
       onMenuClose={() => setIsMenuOpen(false)}
       onMenuOpen={() => setIsMenuOpen(true)}

@@ -1,13 +1,16 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { useEntityBear } from "@/bear/entityBear";
 import Image from "next/image";
 import ImprintDivider from "@/components/ImprintDivider";
 import ImprintWatchCategories from "@/components/ImprintWatchCategories";
+import BlurFade from "@/components/BlurFade";
+import ImprintCategoriesLoader from "@/components/ImprintCategoriesLoader";
 
 const Imprint: React.FC<{}> = () => {
   const selectedEntity = useEntityBear((s) => s.selectedEntity);
   const isEntityLoading = useEntityBear((s) => s.isEntityLoading);
   const selectedCountry = useEntityBear((s) => s.selectedCountry);
+  const scrollToDivRef = useRef<HTMLDivElement | null>(null);
   const selectedProviders = useEntityBear((s) => s.selectedProviders);
 
   const providersByCountry = useMemo(() => {
@@ -17,6 +20,14 @@ const Imprint: React.FC<{}> = () => {
   if (!selectedEntity) {
     return <></>;
   }
+
+  useEffect(() => {
+    if (scrollToDivRef.current) {
+      if ("scrollIntoView" in scrollToDivRef.current) {
+        scrollToDivRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [selectedEntity]);
 
   const dataName = useMemo(() => {
     switch (selectedEntity.media_type) {
@@ -33,9 +44,12 @@ const Imprint: React.FC<{}> = () => {
   );
 
   return (
-    <div className="flex flex-col w-full justify-start items-start">
+    <BlurFade className="flex flex-col w-full justify-start items-start">
       <ImprintDivider>Imprint</ImprintDivider>
-      <div className="flex justify-start items-center gap-3">
+      <div
+        ref={scrollToDivRef}
+        className="flex justify-start items-center gap-3"
+      >
         {!!selectedEntity.poster_path ? (
           <Image
             src={imageUrl}
@@ -64,38 +78,45 @@ const Imprint: React.FC<{}> = () => {
         </div>
       </div>
       <ImprintDivider>Where Can You Watch?</ImprintDivider>
-      {!isEntityLoading && providersByCountry ? (
-        <div className="flex flex-col justify-start items-center gap-3">
+      {isEntityLoading && <ImprintCategoriesLoader />}
+      {providersByCountry && (
+        <BlurFade
+          delay={0.25}
+          className="flex w-full flex-wrap justify-start items-center gap-3"
+        >
           <ImprintWatchCategories
             providersByCountry={providersByCountry}
             type={"free"}
+            color={"#9FA0FF"}
             title={"Watch for Free"}
           />
           <ImprintWatchCategories
             providersByCountry={providersByCountry}
             type={"buy"}
+            color={"#F3CA40"}
             title={"Watch to Buy"}
           />
           <ImprintWatchCategories
             providersByCountry={providersByCountry}
             type={"rent"}
+            color={"#577590"}
             title={"Rent to Watch"}
           />
           <ImprintWatchCategories
             providersByCountry={providersByCountry}
             type={"subscription"}
+            color={"#FC60A8"}
             title={"Need Subscription to Watch"}
           />
           <ImprintWatchCategories
             providersByCountry={providersByCountry}
             type={"flatrate"}
+            color={"#918450"}
             title={"Need Flatrate to Watch"}
           />
-        </div>
-      ) : (
-        <>loading...</>
+        </BlurFade>
       )}
-    </div>
+    </BlurFade>
   );
 };
 

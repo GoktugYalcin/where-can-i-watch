@@ -4,4 +4,5 @@ export type ImprintWatchCategoriesProps = {
   providersByCountry: CountryProviders;
   type: string;
   title: string;
+  color: string;
 };

@@ -6,31 +6,35 @@ const ImprintWatchCategories: React.FC<ImprintWatchCategoriesProps> = ({
   type,
   providersByCountry,
   title,
+  color,
 }) => {
   return (
-    !!providersByCountry[type]?.length && (
-      <div className="w-full ml-8">
-        <span className="px-3 py-1 text-white font-semibold rounded-full bg-slate-700">
-          {title}
-        </span>
-        <div className="flex justify-start items-center flex-wrap my-3 gap-2">
-          {providersByCountry[type].map((i) => {
-            const logoPath = `https://image.tmdb.org/t/p/w500${i.logo_path}`;
-            return (
-              <div className="flex justify-between gap-5 w-fit text-slate-50 items-center font-semibold overflow-hidden bg-gradient-to-br from-slate-700 to-gray-400">
-                <Image
-                  src={logoPath}
-                  width={80}
-                  height={80}
-                  alt={i.provider_name + "'s logo"}
-                />
-                <span className="pr-5">{i.provider_name}</span>
-              </div>
-            );
-          })}
+    !!providersByCountry[type]?.length &&
+    providersByCountry[type].map((i, index) => {
+      const logoPath = `https://image.tmdb.org/t/p/w500${i.logo_path}`;
+      return (
+        <div
+          key={index}
+          className="flex justify-start border w-72 drop-shadow-md border-slate-300 rounded-xl gap-5 text-slate-50 items-center font-semibold overflow-hidden"
+        >
+          <Image
+            src={logoPath}
+            width={80}
+            height={80}
+            alt={i.provider_name + "'s logo"}
+          />
+          <div className="flex flex-col justify-center items-start gap-1">
+            <span className="pr-5 text-black">{i.provider_name}</span>
+            <span
+              className="px-3 py-1 text-white text-xs font-semibold rounded-full bg-slate-700"
+              style={{ backgroundColor: color }}
+            >
+              {title}
+            </span>
+          </div>
         </div>
-      </div>
-    )
+      );
+    })
   );
 };
 

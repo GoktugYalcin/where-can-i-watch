@@ -20,7 +20,7 @@ export const GeneratedValue = (props) => {
 
   return (
     <components.SingleValue
-      className="!transition-colors !rounded !mb-2 !cursor-pointer"
+      className="!transition-colors !rounded !cursor-pointer"
       {...props}
     >
       <div className="flex justify-start items-center gap-3">

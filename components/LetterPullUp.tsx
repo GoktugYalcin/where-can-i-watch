@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { Gupter } from "next/font/google";
+
+const gupter = Gupter({ subsets: ["latin"], weight: "400" });
 
 export function LetterPullUp({ extraClasses, title }) {
   const letters = title?.split("") ?? [];
@@ -23,7 +26,7 @@ export function LetterPullUp({ extraClasses, title }) {
           initial="initial"
           animate="animate"
           custom={i}
-          className={extraClasses}
+          className={extraClasses + " " + gupter.className}
         >
           {letter === " " ? <span>&nbsp;</span> : letter}
         </motion.p>

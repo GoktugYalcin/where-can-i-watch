@@ -22,10 +22,10 @@ export const GeneratedOption = (props) => {
 
   return (
     <components.Option
-      className="!bg-slate-50 hover:!bg-slate-100 !transition-colors !rounded !mb-2 !cursor-pointer"
+      className="!bg-slate-50 hover:!bg-slate-100 !w-full hover:!shadow !transition-colors !rounded-lg !mb-2 !cursor-pointer"
       {...props}
     >
-      <div className="flex justify-start items-center gap-3">
+      <div className="flex justify-start items-center w-full gap-3">
         {!!data.poster_path ? (
           <Image
             src={imageUrl}
@@ -47,8 +47,10 @@ export const GeneratedOption = (props) => {
           </div>
         )}
         <div className="flex flex-col justify-center items-start gap-1">
-          <span className="text-lg">{dataName}</span>
-          <span className="text-md text-slate-500">{data.overview ?? "-"}</span>
+          <span className="text-md !text-slate-800">{dataName}</span>
+          <span className="!text-sm text-slate-500">
+            {data.overview ?? "-"}
+          </span>
         </div>
       </div>
     </components.Option>

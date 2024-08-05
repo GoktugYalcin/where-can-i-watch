@@ -38,6 +38,7 @@ export default function BlurFade({
       <motion.div
         ref={ref}
         initial="hidden"
+        whileInView={"visible"}
         animate={isInView ? "visible" : "hidden"}
         exit="hidden"
         variants={combinedVariants}
