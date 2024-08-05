@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import ky from "ky";
 import { AnimatedShinyTextWrapper } from "@/components/AnimatedShinyTextWrapper";
 import CountryWrapper from "@/components/CountryWrapper";
+import BlurFade from "@/components/BlurFade";
 
 export async function CurrentCountry() {
   const [country, setCountry] = useState<string | null>(null);
@@ -18,14 +19,14 @@ export async function CurrentCountry() {
 
   return !!country ? (
     <>
-      <span className="sticky w-fit ml-12 bottom-5">
+      <BlurFade delay={0.1} className="sticky w-fit ml-12 bottom-5">
         <AnimatedShinyTextWrapper>
           <span className="flex justify-center items-center gap-2">
             <span>You are connecting from:</span>
             <CountryWrapper country={country} />
           </span>
         </AnimatedShinyTextWrapper>
-      </span>
+      </BlurFade>
     </>
   ) : (
     <span className="sticky w-fit ml-12 bottom-5">

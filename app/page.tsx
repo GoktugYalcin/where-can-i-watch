@@ -27,7 +27,7 @@ export default function Home() {
         <div className="z-20 w-full flex justify-center items-center">
           <GeneratedSelect />
         </div>
-        <div className="z-10 lg:w-3/4 w-full flex justify-center items-center mt-10">
+        <div className="z-10 lg:w-3/4 w-full flex justify-center items-center lg:mt-10">
           {!!selectedEntity && <Imprint />}
         </div>
       </BlurFade>
