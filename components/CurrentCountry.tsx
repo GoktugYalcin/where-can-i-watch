@@ -7,7 +7,7 @@ export async function CurrentCountry() {
   let country;
   try {
     const res = await ky("https://api.country.is/").json();
-    country = res.country;
+    country = res.country as string;
   } catch (e) {
     return (
       <span className="sticky w-fit ml-12 bottom-5">
