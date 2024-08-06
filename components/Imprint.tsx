@@ -98,7 +98,7 @@ const Imprint: React.FC<{}> = () => {
           </div>
         </BlurFade>
       )}
-      {providersByCountry && (
+      {!isEntityLoading && providersByCountry && (
         <BlurFade
           delay={0.25}
           className="flex w-full flex-wrap lg:justify-start justify-center items-center lg:gap-3 gap-8 lg:mb-0 mb-16"
