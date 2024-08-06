@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    optimizeFonts: true,
+    productionBrowserSourceMaps: false,
+    compress: true,
+    cleanDistDir: true,
     images: {
         remotePatterns: [
             {
