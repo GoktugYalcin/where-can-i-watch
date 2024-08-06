@@ -39,7 +39,7 @@ export default function RootLayout({
         {children}
         <Suspense
           fallback={
-            <span className="sticky w-fit ml-12 bottom-5">
+            <span className="lg:fixed sticky w-fit ml-12 bottom-5">
               <AnimatedShinyTextWrapper>
                 <span>Loading...</span>
               </AnimatedShinyTextWrapper>

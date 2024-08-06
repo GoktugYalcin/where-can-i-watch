@@ -34,7 +34,7 @@ export const GeneratedOption = (props) => {
             alt={dataName + "'s poster"}
           />
         ) : (
-          <div className="flex items-center justify-center w-36 h-48 bg-gray-300 rounded dark:bg-gray-700">
+          <div className="flex items-center justify-center w-[100px] h-[150px] bg-gray-300 rounded dark:bg-gray-700">
             <svg
               className="w-5 h-10 text-gray-200 dark:text-gray-600"
               aria-hidden="true"
@@ -47,8 +47,10 @@ export const GeneratedOption = (props) => {
           </div>
         )}
         <div className="flex flex-col justify-center items-start gap-1">
-          <span className="text-md !text-slate-800">{dataName}</span>
-          <span className="!text-sm text-slate-500">
+          <span className="lg:text-md text-sm font-semibold !text-slate-800">
+            {dataName}
+          </span>
+          <span className="lg:!text-sm !text-xs text-slate-500 !overflow-hidden !text-ellipsis lg:max-h-[initial] max-h-28">
             {data.overview ?? "-"}
           </span>
         </div>

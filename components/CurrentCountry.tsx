@@ -6,7 +6,7 @@ import { AnimatedShinyTextWrapper } from "@/components/AnimatedShinyTextWrapper"
 import CountryWrapper from "@/components/CountryWrapper";
 import BlurFade from "@/components/BlurFade";
 
-export async function CurrentCountry() {
+export function CurrentCountry() {
   const [country, setCountry] = useState<string | null>(null);
 
   useEffect(() => {

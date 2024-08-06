@@ -42,7 +42,7 @@ const Imprint: React.FC<{}> = () => {
   }
 
   return (
-    <BlurFade className="flex flex-col w-full justify-start items-start">
+    <BlurFade className="flex flex-col lg:w-full w-[90%] justify-start items-start">
       <ImprintDivider isTop>Imprint</ImprintDivider>
       <div
         ref={scrollToDivRef}
@@ -69,8 +69,10 @@ const Imprint: React.FC<{}> = () => {
           </div>
         )}
         <div className="flex flex-col justify-center items-start gap-1">
-          <span className="text-lg">{dataName}</span>
-          <span className="text-md text-slate-500">
+          <span className="lg:text-md text-sm !text-slate-800 font-semibold">
+            {dataName}
+          </span>
+          <span className="lg:!text-sm !text-xs text-slate-500">
             {selectedEntity.overview ?? "-"}
           </span>
         </div>
