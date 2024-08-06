@@ -19,7 +19,7 @@ export default function Home() {
         className="flex flex-col items-center justify-start gap-12 lg:p-24 px-2 pt-12 pb-4 z-3 min-h-screen"
       >
         <div
-          className={`z-10 w-full max-w-5xl flex-col items-center justify-center lg:text-5xl text-2xl font-semibold text-center lg:flex ${inconsolata.className}`}
+          className={`z-10 scale-110 lg:scale-100 w-full max-w-5xl flex-col items-center justify-center lg:text-5xl text-2xl font-semibold text-center lg:flex ${inconsolata.className}`}
         >
           <LetterPullUp title="Search the show or film and figure" />
           <LetterPullUp title='it out "Where can I watch?"' />
