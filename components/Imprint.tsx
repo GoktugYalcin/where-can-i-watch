@@ -43,7 +43,7 @@ const Imprint: React.FC<{}> = () => {
 
   return (
     <BlurFade className="flex flex-col lg:w-full w-[90%] justify-start items-start">
-      <ImprintDivider isTop>Imprint</ImprintDivider>
+      <ImprintDivider>Imprint</ImprintDivider>
       <div
         ref={scrollToDivRef}
         className="flex justify-start items-center gap-3"
