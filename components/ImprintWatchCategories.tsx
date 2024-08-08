@@ -14,7 +14,7 @@ const ImprintWatchCategories: React.FC<ImprintWatchCategoriesProps> = ({
       const logoPath = `https://image.tmdb.org/t/p/w500${i.logo_path}`;
       return (
         <div
-          key={index}
+          key={i.logo_path}
           className="flex justify-start border w-72 drop-shadow-md border-slate-300 rounded-xl gap-5 text-slate-50 items-center font-semibold overflow-hidden"
         >
           <Image
