@@ -111,7 +111,7 @@ const Imprint: React.FC<{}> = () => {
             <span>But in these countries you can watch them already!</span>
             <div className="flex justify-center items-center flex-wrap gap-2 text-3xl mt-3">
               {otherCountries.map((country, index) => (
-                <BlurFade delay={index * 0.01} key={index}>
+                <BlurFade delay={index * 0.001} key={index}>
                   {isAndroid ? (
                     <Image
                       src={`https://flagcdn.com/${country.toLowerCase()}.svg`}
