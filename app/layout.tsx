@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import "./globals.css";
 import HeaderButton from "@/components/HeaderButton";
 import { cn } from "@/lib/utils";
 import GridPattern from "@/components/GridPattern";
 import React, { Suspense } from "react";
 import CurrentCountry from "@/components/CurrentCountry";
 import { AnimatedShinyTextWrapper } from "@/components/AnimatedShinyTextWrapper";
+import { Analytics } from "@vercel/analytics/react";
+import "./globals.css";
 
 const dm = DM_Sans({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={dm.className}>
+        <Analytics />
         <GridPattern
           width={15}
           height={15}
