@@ -3,7 +3,7 @@ import { ProviderResults } from "@/types/TMDB";
 import { GenerateQueryParams } from "@/lib/utils/GenerateQueryParams";
 
 export async function POST(request: Request) {
-  const { type = "movie", id = 0, country = "TR" } = await request.json();
+  const { type = "movie", id = 0 } = await request.json();
   const queryParams = {
     api_key: process.env.MOVIEDB_API_KEY!,
   };

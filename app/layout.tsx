@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { DM_Sans, Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import HeaderButton from "@/components/HeaderButton";
-import { cn, getCountryFlag } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import GridPattern from "@/components/GridPattern";
 import React, { Suspense } from "react";
 import CurrentCountry from "@/components/CurrentCountry";
