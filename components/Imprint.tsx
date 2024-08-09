@@ -10,6 +10,8 @@ import ImprintCategoriesLoader from "@/components/ImprintCategoriesLoader";
 import { getCountryFlag } from "@/lib/utils";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
+export const revalidate: number = 3600;
+
 const Imprint: React.FC<{}> = () => {
   const selectedEntity = useEntityBear((s) => s.selectedEntity);
   const isEntityLoading = useEntityBear((s) => s.isEntityLoading);

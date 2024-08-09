@@ -11,6 +11,8 @@ import {
 import { GeneratedOption } from "@/components/GeneratedOption";
 import { useEntityBear } from "@/bear/entityBear";
 import { GeneratedValue } from "@/components/GeneratedValue";
+import { debounce } from "next/dist/server/utils";
+import { useDebouncedCallback } from "use-debounce";
 
 const components = {
   DropdownIndicator: null,
@@ -29,16 +31,25 @@ const GeneratedSelect = () => {
   const [inputValue, setInputValue] = React.useState<string>("");
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
 
+  const getFromQuery = useDebouncedCallback(
+    async (query: string, callback: (TMDBMultiSearchResult) => void) => {
+      console.log(query);
+      const results = await ky
+        .post("/fetchSearch", { json: { query }, cache: "force-cache" })
+        .json<TMDBMultiSearchResult>();
+      callback(results.results);
+    },
+    500,
+  );
+
   return (
     <AsyncSelect
       ref={selectRef as any}
-      loadOptions={(query) => {
-        const results = ky
-          .post("/fetchSearch", { json: { query } })
-          .json<TMDBMultiSearchResult>();
-        return results.then((res) => {
-          return res.results;
-        });
+      loadOptions={(query, callback) => {
+        if (!query) {
+          callback([]);
+        }
+        getFromQuery(query, callback);
       }}
       getOptionLabel={(opt: MovieResult | TVResult) => opt.name}
       getOptionValue={(opt: any) => ("id" in opt ? opt.id.toString() : "0")}
@@ -63,6 +74,7 @@ const GeneratedSelect = () => {
               id: (val as TMDBResult).id,
               country: selectedCountry,
             },
+            cache: "force-cache",
           })
             .json<ProviderResults>()
             .then((res) => {

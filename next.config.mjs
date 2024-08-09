@@ -7,7 +7,7 @@ const withPWA = pwa({
 })
 
 /** @type {import('next').NextConfig} */
-const nextConfig = withPWA({
+const nextConfig = {
     optimizeFonts: true,
     productionBrowserSourceMaps: false,
     compress: true,
@@ -26,6 +26,6 @@ const nextConfig = withPWA({
             },
         ],
     },
-})
+}
 
-export default nextConfig;
+export default process.env.NODE_ENV === "development" ? nextConfig : withPWA(nextConfig);
