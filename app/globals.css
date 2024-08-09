@@ -17,6 +17,7 @@
 body {
   color: var(--foreground-hex);
   background: var(--background-hex);
+  font-family: "Twemoji Country Flags", "Helvetica", "Comic Sans", serif;
 }
 
 @layer utilities {

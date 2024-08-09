@@ -8,6 +8,7 @@ import ImprintWatchCategories from "@/components/ImprintWatchCategories";
 import BlurFade from "@/components/BlurFade";
 import ImprintCategoriesLoader from "@/components/ImprintCategoriesLoader";
 import { getCountryFlag } from "@/lib/utils";
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 const Imprint: React.FC<{}> = () => {
   const selectedEntity = useEntityBear((s) => s.selectedEntity);
@@ -50,6 +51,8 @@ const Imprint: React.FC<{}> = () => {
   if (!selectedEntity) {
     return <></>;
   }
+
+  polyfillCountryFlagEmojis();
 
   return (
     <BlurFade className="flex flex-col lg:w-full w-[90%] justify-start items-start">
@@ -95,23 +98,27 @@ const Imprint: React.FC<{}> = () => {
           className="flex w-full justify-center items-center lg:gap-3 gap-8 lg:mb-0 mb-16"
         >
           <div className="flex flex-col lg:w-1/2 w-3/4 justify-center items-center font-bold select-none">
-            <Lottie
-              options={
-                {
-                  loop: true,
-                  autoplay: true,
-                  animationData: notFoundAnimation,
-                  rendererSettings: {
-                    className: "pointer-events-none",
-                  },
-                } as Options
-              }
-            />
+            <span className="pointer-events-none">
+              <Lottie
+                options={
+                  {
+                    loop: true,
+                    autoplay: true,
+                    animationData: notFoundAnimation,
+                  } as Options
+                }
+              />
+            </span>
             <span>No provider at your country :(</span>
-            <span>But in these countries you can watch them already!</span>
+            <span>
+              But in these countries below, you can watch them already!
+            </span>
             <div className="flex justify-center items-center flex-wrap gap-2 text-3xl mt-3">
               {otherCountries.map((country, index) => (
-                <BlurFade delay={index * 0.001} key={index}>
+                <BlurFade
+                  delay={otherCountries.length >= 30 ? 0 : index * 0.01}
+                  key={index}
+                >
                   {isAndroid ? (
                     <Image
                       src={`https://flagcdn.com/${country.toLowerCase()}.svg`}
