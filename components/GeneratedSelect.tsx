@@ -32,8 +32,7 @@ const GeneratedSelect = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
 
   const getFromQuery = useDebouncedCallback(
-    async (query: string, callback: (TMDBMultiSearchResult) => void) => {
-      console.log(query);
+    async (query: string, callback: (res: TMDBResult[]) => void) => {
       const results = await ky
         .post("/fetchSearch", { json: { query }, cache: "force-cache" })
         .json<TMDBMultiSearchResult>();
