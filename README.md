@@ -1,6 +1,6 @@
 # 🍿 Where Can I Watch?
 ![Ekran Resmi 2024-08-08 13 53 32](https://github.com/user-attachments/assets/f72ebb31-59c4-4dc4-b026-1865e8bec880)
-### An app that provides any series or film on your country.
+### An app that provides you any series or film "where can you watch" in your country.
 
 
 ## Tech Stack
