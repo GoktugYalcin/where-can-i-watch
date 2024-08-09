@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 import HeaderButton from "@/components/HeaderButton";
 import { cn } from "@/lib/utils";
@@ -11,12 +11,48 @@ import "./globals.css";
 
 const dm = DM_Sans({ subsets: ["latin"] });
 
+const APP_NAME = "Where Can I Watch?";
+const APP_DEFAULT_TITLE = "Where Can I Watch?";
+const APP_TITLE_TEMPLATE = "%s - Where Can I Watch?";
+const APP_DESCRIPTION =
+  "The provider finder for your favourite show, series and movies.";
+
 export const metadata: Metadata = {
-  title: "Where Can I Watch?",
+  title: APP_DEFAULT_TITLE,
   icons:
     "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍿</text></svg>",
-  description:
-    "The provider finder for your favourite show, series and movies.",
+  description: APP_DESCRIPTION,
+  applicationName: APP_NAME,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: APP_DEFAULT_TITLE,
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    siteName: APP_NAME,
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({
