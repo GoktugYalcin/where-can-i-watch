@@ -77,4 +77,7 @@ body {
   .container {
     width: 100%;
   }
+  .mobile-toast {
+    margin-top: 55px;
+  }
 }

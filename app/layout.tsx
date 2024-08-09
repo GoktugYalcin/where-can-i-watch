@@ -8,6 +8,7 @@ import CurrentCountry from "@/components/CurrentCountry";
 import { AnimatedShinyTextWrapper } from "@/components/AnimatedShinyTextWrapper";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const dm = DM_Sans({ subsets: ["latin"] });
 
@@ -63,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={dm.className}>
+        <Toaster />
         <Analytics />
         <GridPattern
           width={15}

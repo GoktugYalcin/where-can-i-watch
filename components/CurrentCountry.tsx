@@ -5,17 +5,35 @@ import ky from "ky";
 import { AnimatedShinyTextWrapper } from "@/components/AnimatedShinyTextWrapper";
 import CountryWrapper from "@/components/CountryWrapper";
 import BlurFade from "@/components/BlurFade";
+import toast from "react-hot-toast";
 
 export function CurrentCountry() {
   const [country, setCountry] = useState<string | null>(null);
 
   useEffect(() => {
+    window.addEventListener("offline", () => setCountry("error"));
     ky("https://api.country.is/")
       .json<{
         country: string;
       }>()
-      .then((res) => setCountry(res.country));
+      .then((res) => setCountry(res.country))
+      .catch(() => setCountry("error"));
   }, []);
+
+  useEffect(() => {
+    if (country === "error") {
+      toast.error(
+        "Your AdBlocker blocked our request or network is not stable. Please try again later.",
+        {
+          duration: Infinity,
+          className: "mobile-toast",
+        },
+      );
+      document.body.classList.add("grayscale");
+      document.body.style.pointerEvents = "none";
+      document.body.style.userSelect = "none";
+    }
+  }, [country]);
 
   return (
     <BlurFade
@@ -24,7 +42,7 @@ export function CurrentCountry() {
     >
       <AnimatedShinyTextWrapper>
         <span className="flex justify-center items-center gap-2">
-          {!!country ? (
+          {!!country && country !== "error" ? (
             <>
               <span>You are connecting from:</span>
               <CountryWrapper country={country} />
