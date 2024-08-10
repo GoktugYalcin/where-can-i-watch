@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const HeaderButton: React.FC<{}> = () => {
   const router = useRouter();
   return (
-    <nav className="sticky w-fit lg:top-6 lg:ml-10 m-4 z-10">
+    <nav className="sticky w-fit lg:top-6 lg:ml-10 top-2 left-2 z-10">
       <BlurFade
         onClick={() => router.replace("/")}
         delay={0.5}
