@@ -38,7 +38,7 @@ export function CurrentCountry() {
   return (
     <BlurFade
       delay={0.1}
-      className="lg:fixed sticky w-fit flex lg:justify-start justify-center items-center bottom-5 lg:left-8"
+      className="lg:fixed sticky w-fit flex lg:justify-start justify-center items-center bottom-5 lg:left-8 left-3"
     >
       <AnimatedShinyTextWrapper>
         <span className="flex justify-center items-center gap-2">
