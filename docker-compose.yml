@@ -1,5 +1,5 @@
 services:
-  where-can-i-watch:
+  where-can:
     build:
       context: .
       dockerfile: Dockerfile

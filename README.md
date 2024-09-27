@@ -18,10 +18,9 @@ It built with **TypeScript, Next.js, Tailwind, react-select, Zustand and TMDB AP
 	 ```
  
 ### Docker
-- Just run 
-	```sh
-	docker-compose -f docker-compose.dev.yml logs -f where-can-i-watch
-	```
+- Just run `docker-compose up`
+
+---
 - Now, you can see the app on https://localhost:3000
 
 ## Roadmap
