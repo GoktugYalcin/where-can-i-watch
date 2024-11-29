@@ -10,7 +10,7 @@ const ImprintWatchCategories: React.FC<ImprintWatchCategoriesProps> = ({
 }) => {
   return (
     !!providersByCountry[type]?.length &&
-    providersByCountry[type].map((i, index) => {
+    providersByCountry[type]?.map((i, index) => {
       const logoPath = `https://image.tmdb.org/t/p/w500${i.logo_path}`;
       return (
         <div
